@@ -1388,7 +1388,7 @@ typename B_tree<tkey, tvalue, compare, t>::btree_iterator B_tree<tkey, tvalue, c
         size_t pos = 0;
         const auto &items = (*current)->_keys;
         for (; pos < items.size(); ++pos) {
-            if (!compare_keys(key, items[pos].first)) break;
+            if (compare_keys(key, items[pos].first)) break;
         }
 
         if (pos < items.size()) {
@@ -1416,7 +1416,7 @@ typename B_tree<tkey, tvalue, compare, t>::btree_const_iterator B_tree<tkey, tva
         size_t pos = 0;
         const auto &items = (*current)->_keys;
         for (; pos < items.size(); ++pos) {
-            if (!compare_keys(key, items[pos].first)) break;
+            if (compare_keys(key, items[pos].first)) break;
         }
 
         if (pos < items.size()) {
